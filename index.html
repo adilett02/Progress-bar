@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test-work</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="box">
+        <svg class="progress-ring" width="500" height="500">
+            <circle class="circle__zero" stroke-width="15" cx="250" cy="250" r="130"></circle>
+            <circle class="circle__first" stroke-width="15" cx="250" cy="250" r="130"></circle>
+            <circle class="circle" stroke-width="15" cx="250" cy="250" r="130"></circle>
+            <linearGradient id="gradient1" gradientTransform="rotate(90)">
+                <stop id="stop1" offset="0%" stop-color="#5dc8f6" stop-opacity="" />
+                <stop id="stop3" offset="100%" stop-color="#9114f6" stop-opacity="" />
+            </linearGradient>
+        </svg>
+        <div class="precent-number">
+            <h1><span class="number">81</span><span>%</span></h1>
+            <p> <span class="dot"></span> <span class="high">высокая</span></p>
+        </div>
+    </div>
+    <input value="81" type="number" class="percent">
+    <script>
+        let input = document.querySelector('.percent');
+        let number = document.querySelector('.number');
+        let progressCircle = document.querySelector(".circle__first");
+        let radius = progressCircle.r.baseVal.value;
+        //circumference of a circle = 2πr;
+        let circumference = radius * 2 * Math.PI;
+        progressCircle.style.strokeDasharray = circumference;
+
+        //0 to 100
+        setProgress(81);
+
+        function setProgress(percent) {
+            progressCircle.style.strokeDashoffset = circumference - (percent / 100) * circumference;
+        }
+
+        input.addEventListener('change', function () {
+            setProgress(input.value);
+            number.innerHTML = input.value;
+            if (input.value <= 60 && input.value > 30) {
+                document.querySelector('.high').innerHTML = 'средняя';
+                document.querySelector('.dot').style.background = 'yellow';
+            } else if (input.value <= 30) {
+                document.querySelector('.high').innerHTML = 'низкая';
+                document.querySelector('.dot').style.background = 'red';
+            } else {
+                document.querySelector('.high').innerHTML = 'высокая';
+                document.querySelector('.dot').style.background = '#59e376';
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

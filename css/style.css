@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #03a9f4;
+    font-family: 'Roboto', sans-serif;
+}
+.box{
+    position: relative;
+}
+.precent-number{
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+    border: 2px solid #b5b5b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f8fc;
+    flex-direction: column;
+}
+.precent-number h1{
+}
+.precent-number .number{
+    font-size: 100px;
+    color: #1c1817;
+}
+.precent-number h1 span{
+    font-size: 40px;
+    color: #5ebdeb;
+}
+p{
+    display: flex;
+    align-items: center;
+}
+.high{
+    color: #bfbfc1;
+    font-size: 30px;
+}
+.dot{
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #59e376;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.circle__zero{
+    fill: #fff;
+    stroke: #eaebef;
+    stroke-dasharray: 0;
+    transform-origin: center;
+    transform: rotate(-90deg);
+}
+.circle{
+    fill: transparent;
+    stroke: #d1d1c9;
+    stroke-dasharray: 5 160;
+    transform-origin: center;
+    transform: rotate(-90deg);
+}
+.circle__first{
+    fill: transparent;
+     stroke: url(#gradient1);
+    /* stroke-dasharray: 0; */
+    transform-origin: center;
+    transform: rotate(-90deg);
+}
